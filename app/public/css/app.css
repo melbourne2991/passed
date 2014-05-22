@@ -146,12 +146,18 @@ body, html {
   margin: 0 auto; }
 
 .top_bar {
-  color: #fff;
-  background: #303030;
-  padding: 5px 0; }
+  border-bottom: 1px solid #e6e6e6;
+  padding: 6px 0 3px 0;
+  background: #fafafa; }
   .top_bar .logo {
-    font-size: 14px;
-    font-family: "Futura", "sans-serif"; }
+    margin-top: 5px;
+    font-size: 28px;
+    font-family: "Bariol", "sans-serif";
+    font-weight: bold;
+    text-transform: none;
+    width: 100px; }
+    .top_bar .logo img {
+      width: 100%; }
 
 .body {
   padding: 40px 0 40px 0; }

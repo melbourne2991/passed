@@ -1,10 +1,18 @@
 .top_bar {
-	@include dark_background;
-	padding: 5px 0;
+	border-bottom: 1px solid lighten(#000, 90%);
+	padding: 6px 0 3px 0;
+	background: darken(#fff,2%);
 
 	.logo {
-		font-size: 14px;
+		margin-top: 5px;
+		font-size: 28px;
 		font-family: $header_font;
+		font-weight: bold;
+		text-transform: none;
+		width: 100px;
+		img {
+			width: 100%;
+		}
 	}
 }
 
