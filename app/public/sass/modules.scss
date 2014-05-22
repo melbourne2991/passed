@@ -1,0 +1,118 @@
+.top_bar {
+	@include dark_background;
+	padding: 5px 0;
+
+	.logo {
+		font-size: 14px;
+		font-family: $header_font;
+	}
+}
+
+.body {
+	padding: 40px 0 40px 0;
+}
+
+.box {
+	background: lighten(#000, 98%);
+	border: 1px solid lighten(#000, 80%);
+	padding: 5px;
+	margin: 0 0 20px 0;
+	border-radius: 5px;
+
+	.passing > div:first-child, .failing > div:first-child {
+		padding:10px;
+		font-size: 24px;
+		color: #fff;
+
+	}
+
+	.count {
+		border-radius: 5px 5px 0 0;
+	}
+
+	.passing {
+		text-align: center;
+		padding-right: 5px;
+		width: 10%;
+
+		div {
+			background: $green;
+		}
+
+		.text_passing {
+			font-size: 10px;
+			padding:0px 5px 10px 5px;
+			color: #fff;
+			border-radius: 0 0 5px 5px;
+		}
+	}
+
+	.failing {
+		text-align: center;
+		padding-left: 5px;
+		width: 10%;
+
+		div {
+			background: $red;
+		}
+
+		.text_failing {
+			font-size: 10px;
+			padding:0px 5px 10px 5px;
+			color: #fff;
+			border-radius: 0 0 5px 5px;
+		}
+	}
+
+	.details {
+		width: 80%;
+		padding: 0 0px 0 10px;
+
+		> div {
+			padding-bottom: 5px;
+		}
+
+		.header {
+			.title {
+				color: $blue;
+				font-size: 18px;
+			}
+		}
+
+		.tags {
+			div {
+
+			}
+		}
+	}
+}
+
+	.lang_plat {
+		text-align: right;
+		padding-top: 3px;
+
+		span {
+			border-radius: 5px;
+		}
+	}
+
+	.language {
+		background: $purple;
+		color: #fff;
+		margin: 5px 0px 0 5px;
+		padding: 3px 5px;
+	}
+
+	.platform {
+		background: $brown;
+		color: #fff;
+		margin: 5px 0px 0 5px;
+		padding: 3px 5px;
+	}
+
+.green_light {
+	border-radius: 40px;
+	width: 20px;
+	height: 20px;
+	background: $green;
+}
