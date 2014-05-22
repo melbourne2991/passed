@@ -10,6 +10,11 @@ server.get('/', function(req, res) {
 	res.render('index');
 });
 
+server.get('/partials/:name', function(req, res) {
+	var name = req.params.name;
+	res.render('partials/' + name);
+});
+
 server.use(express.static(__dirname + '/public'));
 
 server.listen(3000);

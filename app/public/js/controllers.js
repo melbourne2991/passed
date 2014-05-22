@@ -2,10 +2,11 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', ['$scope', function($scope) {
+angular.module('TestListingsApp.controllers', ['TestListingsApp.services'])
+  .controller('HomeController', ['$scope', 'listingsFactory', function($scope, listingsFactory) {
+  	console.log(listingsFactory.getListings());
 
-  }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
-
+  	listingsFactory.getListings().then(function(result) {
+  		$scope.listings = result.data;
+  	});
   }]);

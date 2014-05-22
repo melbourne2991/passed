@@ -5,9 +5,7 @@ block header
 block content
 	div(class="grid")
 		div(class="unit two-thirds")
-			include partials/box_listing
-			include partials/box_listing
-			include partials/box_listing
-			include partials/box_listing
-			include partials/box_listing
+			div(data-ng-app="TestListingsApp" data-ng-controller="HomeController")
+				div(data-ng-repeat="listing in listings" test-listing="listing")
+
 

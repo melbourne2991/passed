@@ -2,11 +2,20 @@ doctype html
 head
 	title Hello
 	link(rel="stylesheet", href="css/app.css")
+	script(src="bower_components/angular/angular.js")
+	script(src="bower_components/angular-ui-router/release/angular-ui-router.js")
 	block head
 body
 	div(class="top_bar")
 		div(class="container")
-			div(class="logo") PASSED.IO
+			div(class="logo")
+				img(src="img/logo.png")
 			block header
 	div(class="container body")
 		block content
+
+	script(src="js/controllers.js")
+	script(src="js/directives.js")
+	script(src="js/services.js")
+	script(src="js/filters.js")
+	script(src="js/app.js")
