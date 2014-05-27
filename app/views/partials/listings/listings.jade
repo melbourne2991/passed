@@ -1,0 +1,8 @@
+div(data-ng-app="listingsModule" data-ng-controller="MainController")
+	div(class="tabs")
+		ul
+			li Javascript
+			li Python
+			li Java
+			li Ruby
+	div(data-ng-repeat="listing in listings" listing="listing")

@@ -41,14 +41,14 @@ When you're done, your setup should look similar to the following:
 >
 ```html
 <!doctype html>
-<html ng-app="TestListingsApp">
+<html ng-app="listingsModule">
 <head>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
     <script src="js/angular-ui-router.min.js"></script>
     <script>
-        var TestListingsApp = angular.module('TestListingsApp', ['ui.router']);
+        var listingsModule = angular.module('listingsModule', ['ui.router']);
         // For Component users, it should look like this:
-        // var TestListingsApp = angular.module('TestListingsApp', [require('angular-ui-router')]);
+        // var listingsModule = angular.module('listingsModule', [require('angular-ui-router')]);
     </script>
     ...
 </head>
@@ -120,7 +120,7 @@ The majority of UI-Router's power is in its ability to nest states & views.
 
 >
 ```javascript
-TestListingsApp.config(function($stateProvider, $urlRouterProvider) {
+listingsModule.config(function($stateProvider, $urlRouterProvider) {
   //
   // For any unmatched url, redirect to /state1
   $urlRouterProvider.otherwise("/state1");
@@ -184,7 +184,7 @@ interfaces more effectively by nesting your views, and pairing those views with 
 **(3)** Set up your states in the module config:
 >
 ```javascript
-TestListingsApp.config(function($stateProvider) {
+listingsModule.config(function($stateProvider) {
   $stateProvider
     .state('index', {
       url: "",
