@@ -1,6 +1,6 @@
 var express = require('express');
 var server = express();
-var api = require('./api/app');
+var api = require('./api/app')(express);
 
 server.set('view engine', 'jade');
 server.set('views', __dirname + '/views');

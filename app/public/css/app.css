@@ -145,8 +145,23 @@ body, html {
   width: 960px;
   margin: 0 auto; }
 
+.tabs {
+  border-bottom: 1px solid #cccccc;
+  margin: 20px 0; }
+  .tabs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .tabs li {
+    display: inline-block;
+    padding: 10px 20px;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    margin-right: 10px; }
+
 .top_bar {
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom: 1px solid #cccccc;
   padding: 6px 0 3px 0;
   background: #fafafa; }
   .top_bar .logo {

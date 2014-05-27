@@ -6,6 +6,12 @@ block content
 	div(class="grid")
 		div(class="unit two-thirds")
 			div(data-ng-app="TestListingsApp" data-ng-controller="HomeController")
+				div(class="tabs")
+					ul
+						li Javascript
+						li Python
+						li Java
+						li Ruby
 				div(data-ng-repeat="listing in listings" test-listing="listing")
 
 
