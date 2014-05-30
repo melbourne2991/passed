@@ -3,8 +3,8 @@
 /* Directives */
 
 
-angular.module('listingsModule.directives', []).
-  directive('listing', [ function() {
+angular.module('listingsModule.directives', [])
+  .directive('listing', [ function() {
     return {
     	templateUrl: '/partials/listings/_box_listing',
     	scope: {

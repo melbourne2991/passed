@@ -1,8 +1,4 @@
 div(data-ng-app="listingsModule" data-ng-controller="MainController")
 	div(class="tabs")
-		ul
-			li Javascript
-			li Python
-			li Java
-			li Ruby
-	div(data-ng-repeat="listing in listings" listing="listing")
+		ul(data-tabs="languages" data-tabs-text-property="name" data-filter-by="filterBy" data-filter="filter")
+	div( data-ng-repeat="listing in listings | filter:{ language: filter }" data-listing="listing")

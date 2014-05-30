@@ -1,9 +1,17 @@
-var express = require('express');
-var server = express();
+var express 	= require('express');
+var server 		= express();
+var bodyParser 	= require('body-parser');
+var mongoose 	= require('mongoose')
+
 var api = require('./api/app')(express);
+
+mongoose.connect('mongodb://localhost/myapp', function(err) {
+	if(err) throw err;
+});
 
 server.set('view engine', 'jade');
 server.set('views', __dirname + '/views');
+server.use(bodyParser());      
 server.use('/api', api);
 
 server.get('/', function(req, res) {

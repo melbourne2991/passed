@@ -4,6 +4,7 @@
 // Declare app level module which depends on filters, and services
 angular.module('listingsModule', [
   'ui.router',
+  'commonModule',
   'listingsModule.filters',
   'listingsModule.services',
   'listingsModule.directives',

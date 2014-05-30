@@ -1,7 +1,23 @@
+var Listing = require('./models/listing');
+
 module.exports = function(express) {
 	var api = express.Router();
 
-	api.get('/tests', function(req, res, next){
+	api.post('/listing', function(req, res, next) {
+		console.log(req.body);
+
+		var listing = new Listing(req.body);
+
+		listing.save(function(err) {
+			if(err) {
+				return handleError(err);
+			} else {
+				res.send(true);
+			}
+		});
+	});
+
+	api.get('/listings', function(req, res, next){
 		res.json([
 			{
 				title: 'Render Maps on Click',
@@ -18,6 +34,28 @@ module.exports = function(express) {
 				language: 'Javascript',
 				framework: 'EmberJs',
 				parent_app: null
+			},
+			{
+				title: 'Exit shopping cart',
+				passing: 10,
+				failing: 12,
+				language: 'Python',
+				framework: 'EmberJs',
+				parent_app: null
+			}
+		]);
+	});
+
+	api.get('/languages', function(req, res, next){
+		res.json([
+			{
+				name: 'Javascript'
+			},
+			{
+				name: 'Python'
+			},
+			{
+				name: 'Ruby'
 			}
 		]);
 	});
