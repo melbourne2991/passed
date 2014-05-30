@@ -1,7 +1,36 @@
 var Listing = require('./models/listing');
+var User 	= require('./models/user');
 
-module.exports = function(express) {
+module.exports = function(express, passport) {
 	var api = express.Router();
+
+	api.post('/user', function(req, res, next) {
+		var data 			  = req.body;
+		var unhashed_password = data.password;
+
+		data.password = User.generateHash(unhashed_password);
+
+		var user = new User(data);
+
+		user.save(function(err) {
+			if(err) {
+				return handleError(err);
+			} else {
+				res.send(true);
+			}
+		});
+	});
+
+	api.post('/login', function(req, res, next) {
+		passport.authenticate('local', { session: false }, function(err, user, info) {
+			if(!user) {
+				res.json(info);
+			} else {
+				res.send(true);
+			}
+
+		})(req, res, next);
+	});
 
 	api.post('/listing', function(req, res, next) {
 		console.log(req.body);

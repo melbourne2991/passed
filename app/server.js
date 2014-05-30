@@ -1,9 +1,9 @@
 var express 	= require('express');
 var server 		= express();
 var bodyParser 	= require('body-parser');
-var mongoose 	= require('mongoose')
-
-var api = require('./api/app')(express);
+var mongoose 	= require('mongoose');
+var passport	= require('./config/passport');
+var api 		= require('./api/app');
 
 mongoose.connect('mongodb://localhost/myapp', function(err) {
 	if(err) throw err;
@@ -11,8 +11,11 @@ mongoose.connect('mongodb://localhost/myapp', function(err) {
 
 server.set('view engine', 'jade');
 server.set('views', __dirname + '/views');
-server.use(bodyParser());      
-server.use('/api', api);
+
+server.use(bodyParser()); 
+server.use(passport.initialize());
+
+server.use('/api', api(express, passport));
 
 server.get('/', function(req, res) {
 	res.render('index');
