@@ -1,8 +1,20 @@
-var Listing = require('./models/listing');
-var User 	= require('./models/user');
+var Listing 	 		= require('./models/listing');
+var User 		 		= require('./models/user');
+var ensureAuthenticated = require('./middleware/authenticate');
 
 module.exports = function(express, passport) {
 	var api = express.Router();
+
+	api.get('/authenticated/*', function(req, res, next) {
+		ensureAuthenticated(req, res, next, passport)
+	});
+	
+	api.get('/authenticated/logout', function(req, res, next) {
+		req.session.destroy(function(err) {
+			if(err) return next(err);
+			res.send('Logged Out')
+		});
+	});
 
 	api.post('/user', function(req, res, next) {
 		var data 			  = req.body;
@@ -14,7 +26,7 @@ module.exports = function(express, passport) {
 
 		user.save(function(err) {
 			if(err) {
-				return handleError(err);
+				res.json(err);
 			} else {
 				res.send(true);
 			}
@@ -22,13 +34,21 @@ module.exports = function(express, passport) {
 	});
 
 	api.post('/login', function(req, res, next) {
-		passport.authenticate('local', { session: false }, function(err, user, info) {
+		passport.serializeUser(function( user, done ) {
+		    done( null, user.id);
+		});
+
+		passport.authenticate('local', function(err, user, info) {
+			if(err) return next(err);
+
 			if(!user) {
 				res.json(info);
 			} else {
-				res.send(true);
+				req.logIn(user, function(err) {
+					if(err) return next(err);
+					res.send(true);
+				});
 			}
-
 		})(req, res, next);
 	});
 

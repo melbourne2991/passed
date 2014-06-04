@@ -1,4 +1,6 @@
 module.exports = function(grunt) {
+grunt.file.setBase('../../.');
+
 	grunt.initConfig({
 		sass: {
 			dist: {

@@ -1,6 +1,4 @@
 module.exports = function(grunt) {
-grunt.file.setBase('../../.');
-
 	grunt.initConfig({
 		sass: {
 			dist: {
@@ -11,7 +9,7 @@ grunt.file.setBase('../../.');
 		},
 		watch: {
 			dist: {
-				files: 'app/public/sass/*.scss',
+				files: 'sass/*.scss',
 				tasks: ['sass']
 			}
 		}
